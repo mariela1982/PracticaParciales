@@ -19,6 +19,7 @@ public class TestCases {
 		Pagadora tarjetaDeDebito = new TarjetaDeDebito(NUMERO_ESPERADO, TITULAR_ESPERADO, FECHA_DE_VENCIMIENTO_ESPERADO, CODIGO_DE_SEGURIDAD_ESPERADO);
 		tarjetaDeDebito.setSaldo(10000.0);
 		
+		
 		// Verificaci�n
 		assertEquals(NUMERO_ESPERADO, tarjetaDeDebito.getNumero());
 		assertEquals(TITULAR_ESPERADO, tarjetaDeDebito.getTitular());
@@ -34,96 +35,97 @@ public class TestCases {
 		final String TITULAR_ESPERADO = "SOFIA BARRIENTOS";
 		final Integer CODIGO_DE_SEGURIDAD_ESPERADO = 567;
 		final String FECHA_DE_VENCIMIENTO_ESPERADO = "25/05/2025";
-		final double LIMITE_COMPRA_EN_PESOS = 100000.0;
-		final double LIMITE_COMPRA_EN_DOLARES = 1000.0;
+		final Double LIMITE_COMPRA_EN_PESOS = 100000.0;
+		final Double LIMITE_COMPRA_EN_DOLARES = 1000.0;
 		
 		// Ejecuci�n
-		Pagadora tarjetaDeCredito = new TarjetaDeCredito(NUMERO_ESPERADO, TITULAR_ESPERADO, FECHA_DE_VENCIMIENTO_ESPERADO, CODIGO_DE_SEGURIDAD_ESPERADO, LIMITE_COMPRA_EN_PESOS, LIMITE_DE_COMPRA_EN_DOLARES);
+		Pagadora tarjetaDeCredito = new TarjetaDeCredito(NUMERO_ESPERADO, TITULAR_ESPERADO, FECHA_DE_VENCIMIENTO_ESPERADO, CODIGO_DE_SEGURIDAD_ESPERADO, LIMITE_COMPRA_EN_PESOS, LIMITE_COMPRA_EN_DOLARES);
 
 		// Verificaci�n
 		assertEquals(NUMERO_ESPERADO, tarjetaDeCredito.getNumero());
 		assertEquals(TITULAR_ESPERADO, tarjetaDeCredito.getTitular());
 		assertEquals(CODIGO_DE_SEGURIDAD_ESPERADO, tarjetaDeCredito.getCodigoDeSeguridad());
 		assertEquals(FECHA_DE_VENCIMIENTO_ESPERADO, tarjetaDeCredito.getFechaDeVencimiento());
-		assertEquals(LIMITE_COMPRA_EN_PESOS, tarjetaDeCredito.getLimiteDeCompraEnPesos());
-		assertEquals(LIMITE_COMPRA_EN_DOLARES, tarjetaDeCredito.getLimiteDeCompraEnDolares());
+		assertEquals(LIMITE_COMPRA_EN_PESOS, ((TarjetaDeCredito) tarjetaDeCredito).getLimiteEnPesos());
+		assertEquals(LIMITE_COMPRA_EN_DOLARES, ((TarjetaDeCredito) tarjetaDeCredito).getLimiteEnDolares());
 	}
-//	
-//	@Test
-//	public void queSePuedaCrearUnaCuentaBancaria() throws CBUInvalidoException{
-//		// Preparaci�n 
-//		final String CBU_ESPERADO = "01702046600000087865";
-//		final String ENTIDAD_ESPERADA = "Santander";
-//		final String TITULAR_ESPERADO = "Vicente De La Pradera";
-//		
-//		// Ejeruci�n
-//		Transferible cuentaBancaria = new CuentaBancaria(CBU_ESPERADO, ENTIDAD_ESPERADA, TITULAR_ESPERADO);
-//		
-//		// Verificaci�n
-//		assertEquals(CBU_ESPERADO, cuentaBancaria.getCbu());
-//		assertEquals(ENTIDAD_ESPERADA, cuentaBancaria.getEntidad());
-//		assertEquals(TITULAR_ESPERADO, cuentaBancaria.getTitular());
-//	}
-//	
-//	@Test
-//	public void queSePuedaCrearUnaCuentaVirtual() throws CVUInvalidoException{
-//		// Preparaci�n 
-//		final String CVU_ESPERADO = "46467898132212011234552";
-//		final String ENTIDAD_ESPERADA = "Mercado Pago";
-//		final String TITULAR_ESPERADO = "Leticia Bridgeton";
-//		
-//		// Ejecuci�n
-//		Transferible cuentaVirtual = new CuentaVirtual(CVU_ESPERADO, ENTIDAD_ESPERADA, TITULAR_ESPERADO);
-//		
-//		// Verificaci�n
-//		assertEquals(CVU_ESPERADO, cuentaVirtual.getCvu());
-//		assertEquals(ENTIDAD_ESPERADA, cuentaVirtual.getEntidad());
-//		assertEquals(TITULAR_ESPERADO, cuentaVirtual.getTitular());
-//	}
-//	
-//	@Test
-//	public void queSePuedaCrearUnComercio() throws CuitInvalidoException{
-//		// Preparaci�n 
-//		final String NOMBRE_ESPERADO = "El almacen de la esquina";
-//		final Long CUIT_ESPERADO = 30215654124L;
-//		
-//		// Ejecuci�n
-//		Comercio elAlmacen = new Comercio(CUIT_ESPERADO, NOMBRE_ESPERADO);
-//		
-//		// Verificaci�n
-//		assertEquals(NOMBRE_ESPERADO, elAlmacen.getNomNbre());
-//		assertEquals(NOMBRE_ESPERADO, elAlmacen.getCuit());
-//	}
-//	
-//	@Test
-//	public void queSePuedaCrearUnConsumidor() {
-//		// Preparaci�n 
-//		final String NOMBRE_ESPERADO = "Erika Romeo";
-//		final Integer DNI_ESPERADO = 33458712;
-//		
-//		// Ejecuci�n
-//		Consumidor nuevo = new Consumidor(DNI_ESPERADO, NOMBRE_ESPERADO);
-//		
-//		// Verificaci�n
-//		assertEquals(NOMBRE_ESPERADO, elAlmacen.getNomNbre());
-//		assertEquals(NOMBRE_ESPERADO, elAlmacen.getCuit());
-//	}
-//	
-//	@Test
-//	public void queSePuedanAgregarComerciosALaBilletera() throws CuitInvalidoException{
-//		// Preparaci�n 
-//		final Integer CANTIDAD_DE_COMERCIOS_ESPERADOS = 2;
-//		
-//		// Ejecuci�n
-//		Billetera mataGalan = new Billetera("Ank");
-//		
-//		mataGalan.agregarComercio(new Comercio(30456213545L, "Supermercado"));
-//		mataGalan.agregarComercio(new Comercio(30215654124L, "Panader�a"));
-//		mataGalan.agregarComercio(new Comercio(30215654124L, "Panader�a"));
-//		
-//		// Verificaci�n
-//		assertEquals(CANTIDAD_DE_COMERCIOS_ESPERADOS, billetera.getCantidadDeComercios());
-//	}
+	
+	@Test
+	public void queSePuedaCrearUnaCuentaBancaria() throws CBUInvalidoException{
+		// Preparaci�n 
+		final String CBU_ESPERADO = "01702046600000087865";
+		final String ENTIDAD_ESPERADA = "Santander";
+		final String TITULAR_ESPERADO = "Vicente De La Pradera";
+		
+		// Ejeruci�n
+		Transferible cuentaBancaria = new CuentaBancaria(CBU_ESPERADO, ENTIDAD_ESPERADA, TITULAR_ESPERADO);
+		
+		// Verificaci�n
+		assertEquals(CBU_ESPERADO, cuentaBancaria.getNumero());
+		assertEquals(ENTIDAD_ESPERADA, cuentaBancaria.getEntidad());
+		assertEquals(TITULAR_ESPERADO, cuentaBancaria.getTitular());
+	}
+	
+	@Test
+	public void queSePuedaCrearUnaCuentaVirtual() throws CVUInvalidoException{
+		// Preparaci�n 
+		final String CVU_ESPERADO = "46467898132212011234552";
+		final String ENTIDAD_ESPERADA = "Mercado Pago";
+		final String TITULAR_ESPERADO = "Leticia Bridgeton";
+		
+		// Ejecuci�n
+		Transferible cuentaVirtual = new CuentaVirtual(CVU_ESPERADO, ENTIDAD_ESPERADA, TITULAR_ESPERADO);
+		
+		// Verificaci�n
+		assertEquals(CVU_ESPERADO, cuentaVirtual.getNumero());
+		assertEquals(ENTIDAD_ESPERADA, cuentaVirtual.getEntidad());
+		assertEquals(TITULAR_ESPERADO, cuentaVirtual.getTitular());
+	}
+	
+	@Test
+	public void queSePuedaCrearUnComercio() throws CuitInvalidoException{
+		// Preparaci�n 
+		final String NOMBRE_ESPERADO = "El almacen de la esquina";
+		final Long CUIT_ESPERADO = 30215654124L;
+		
+		// Ejecuci�n
+		Comercio elAlmacen = new Comercio(CUIT_ESPERADO, NOMBRE_ESPERADO);
+		
+		// Verificaci�n
+		assertEquals(NOMBRE_ESPERADO, elAlmacen.getNombre());
+		assertEquals(CUIT_ESPERADO, elAlmacen.getCuit());
+	}
+	
+	@Test
+	public void queSePuedaCrearUnConsumidor() {
+		// Preparaci�n 
+		final String NOMBRE_ESPERADO = "Erika Romeo";
+		final Integer DNI_ESPERADO = 33458712;
+		
+		// Ejecuci�n
+		Consumidor nuevo = new Consumidor(DNI_ESPERADO, NOMBRE_ESPERADO);
+		
+		// Verificaci�n
+		assertEquals(NOMBRE_ESPERADO, nuevo.getNombre());
+		assertEquals(DNI_ESPERADO, nuevo.getDni());
+	}
+	
+	@Test
+	public void queSePuedanAgregarComerciosALaBilletera() throws CuitInvalidoException{
+		// Preparaci�n 
+		final Integer CANTIDAD_DE_COMERCIOS_ESPERADOS = 2;
+	
+		// Ejecuci�n
+		Billetera mataGalan = new Billetera("Ank");
+		
+		mataGalan.agregarComercio(new Comercio(30456213545L, "Supermercado"));
+		mataGalan.agregarComercio(new Comercio(30215654124L, "Panader�a"));
+		mataGalan.agregarComercio(new Comercio(30215654124L, "Panader�a"));
+		
+		
+		// Verificaci�n
+		assertEquals(CANTIDAD_DE_COMERCIOS_ESPERADOS, mataGalan.getCantidadDeComercios());
+	}
 //	
 //	@Test
 //	public void queSePuedanAgregarConsumidoresALaBilletera() {
