@@ -126,42 +126,42 @@ public class TestCases {
 		// Verificaci�n
 		assertEquals(CANTIDAD_DE_COMERCIOS_ESPERADOS, mataGalan.getCantidadDeComercios());
 	}
-//	
-//	@Test
-//	public void queSePuedanAgregarConsumidoresALaBilletera() {
-//		// Preparaci�n 
-//		final Integer CANTIDAD_DE_CONSUMIDORES_ESPERADOS = 2;
-//		
-//		// Ejecuci�n
-//		Billetera mataGalan = new Billetera("Bna+");
-//		
-//		mataGalan.agregarConsumidor(Consumidor(27541231, "Luis Gomez");
-//		mataGalan.agregarConsumidor(Consumidor(27541231, "Luis Gomez");
-//		mataGalan.agregarConsumidor(Consumidor(36541231, "Sofia Molina");
-//		
-//		// Verificaci�n
-//		assertEquals(CANTIDAD_DE_CONSUMIDORES_ESPERADOS, mataGalan.getCantidadDeConsumidores());
-//	}
-//	
-//	@Test
-//	public void queSePuedanAgregarDistintosMediosDePagoALaBilleteraDeUnConsumidor() throws NumeroDeTarjetaInvalidoException, CBUInvalidoException, CVUInvalidoException, NoCoincideTitularException{
-//		// Preparaci�n 
-//		final Integer CANTIDAD_DE_MEDIOS_EN_LA_BILLETERA_ESPERADOS = 4;
-//		
-//		// Ejecuci�n
-//		Billetera mataGalan = new Billetera("MercadoPago");
-//		mataGalan.agregarConsumidor(new Consumidor(27541231, "Luis Gomez");
-//		
-//		mataGalan.agregarMedioDePago(27541231, new TarjetaDeDebito(48332562153254623L, "Luis Gomez", "10/10/2026", 265));
-//		mataGalan.agregarMedioDePago(27541231, new TarjetaDeDebito(48332562153254623L, "Luis Gomez", "10/10/2026", 312));
-//		mataGalan.agregarMedioDePago(27541231, new TarjetaDeCredito(5423542385612354L, "Luis Gomez", "10/10/2026", 153));
-//		mataGalan.agregarMedioDePago(27541231, new CuentaBancaria("01702046600000087865", "Naci�n", "Luis Gomez"));
-//		mataGalan.agregarMedioDePago(27541231, new CuentaVirtual("0000003100036521571806", "Mercado Pago", "Luis Gomez"));
-//		
-//		// Verificaci�n
-//		assertEquals(CANTIDAD_DE_MEDIOS_EN_LA_BILLETERA_ESPERADOS, billetera.getCantidadDeMediosDePago(27541231));
-//	}
-//	
+	
+	@Test
+	public void queSePuedanAgregarConsumidoresALaBilletera() {
+		// Preparaci�n 
+		final Integer CANTIDAD_DE_CONSUMIDORES_ESPERADOS = 2;
+		
+		// Ejecuci�n
+		Billetera mataGalan = new Billetera("Bna+");
+		
+		mataGalan.agregarConsumidor(new Consumidor(27541231, "Luis Gomez"));
+		mataGalan.agregarConsumidor(new Consumidor(27541231, "Luis Gomez"));
+		mataGalan.agregarConsumidor(new Consumidor(36541231, "Sofia Molina"));
+		
+		// Verificaci�n
+		assertEquals(CANTIDAD_DE_CONSUMIDORES_ESPERADOS, mataGalan.getCantidadDeConsumidores());
+	}
+	
+	@Test
+	public void queSePuedanAgregarDistintosMediosDePagoALaBilleteraDeUnConsumidor() throws NumeroDeTarjetaInvalidoException, CBUInvalidoException, CVUInvalidoException, NoCoincideTitularException{
+		// Preparaci�n 
+		final Integer CANTIDAD_DE_MEDIOS_EN_LA_BILLETERA_ESPERADOS = 4;
+		
+		// Ejecuci�n
+		Billetera mataGalan = new Billetera("MercadoPago");
+		mataGalan.agregarConsumidor(new Consumidor(27541231, "Luis Gomez"));
+		
+		mataGalan.agregarMedioDePago(27541231, new TarjetaDeDebito(48332562153254623L, "Luis Gomez", "10/10/2026", 265));
+		mataGalan.agregarMedioDePago(27541231, new TarjetaDeDebito(48332562153254623L, "Luis Gomez", "10/10/2026", 312));
+		mataGalan.agregarMedioDePago(27541231, new TarjetaDeCredito(5423542385612354L, "Luis Gomez", "10/10/2026", 153));
+		mataGalan.agregarMedioDePago(27541231, new CuentaBancaria("01702046600000087865", "Naci�n", "Luis Gomez"));
+		mataGalan.agregarMedioDePago(27541231, new CuentaVirtual("0000003100036521571806", "Mercado Pago", "Luis Gomez"));
+		
+		// Verificaci�n
+		assertEquals(CANTIDAD_DE_MEDIOS_EN_LA_BILLETERA_ESPERADOS, billetera.getCantidadDeMediosDePago(27541231));
+	}
+	
 //	@Test
 //	public void queSePuedaPagarConUnaTarjetaDeCredito() throws NumeroDeTarjetaInvalidoException, CBUInvalidoException, CVUInvalidoException, ExcedeLimiteDeCompraException{
 //		// Preparaci�n 

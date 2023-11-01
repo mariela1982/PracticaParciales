@@ -1,6 +1,8 @@
 package ar.edu.unlam.pb2;
 
-public class Consumidor {
+import java.util.Objects;
+
+public class Consumidor implements Comparable<Consumidor>{
 	
 	private Integer dni;
 	private String nombre;
@@ -25,5 +27,28 @@ public class Consumidor {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni);
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Consumidor other = (Consumidor) obj;
+		return Objects.equals(dni, other.dni);
+	}
+
+	
+
+	@Override
+	public int compareTo(Consumidor o) {
+		
+		return this.nombre.compareTo(o.nombre);
+	}
 }

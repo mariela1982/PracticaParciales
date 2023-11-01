@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2;
 
-public abstract class Cuenta {
+public abstract class Cuenta implements MedioDePago{
 	protected String entidad;
 	protected String titular;
 	protected Double saldo;

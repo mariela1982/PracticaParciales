@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2;
 
-public abstract class Tarjeta {
+public abstract class Tarjeta implements MedioDePago {
 	protected Long numero;
 	protected String titular;
 	protected String fechaDeVencimiento;
